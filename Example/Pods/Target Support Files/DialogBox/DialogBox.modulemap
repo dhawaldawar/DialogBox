@@ -1,0 +1,6 @@
+framework module DialogBox {
+  umbrella header "DialogBox-umbrella.h"
+
+  export *
+  module * { export * }
+}

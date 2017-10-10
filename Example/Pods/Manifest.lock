@@ -1,0 +1,16 @@
+PODS:
+  - DialogBox (0.1.0)
+
+DEPENDENCIES:
+  - DialogBox (from `../`)
+
+EXTERNAL SOURCES:
+  DialogBox:
+    :path: ../
+
+SPEC CHECKSUMS:
+  DialogBox: a94fff938f43f0dd242b921d3a87631af6ce2348
+
+PODFILE CHECKSUM: 64cf3abd61bca87413bc972da8f771b7c910db55
+
+COCOAPODS: 1.3.1
