@@ -340,53 +340,60 @@ public enum BoxCloseButtonPosition{
 public class DialogBox : UIView{
     
     // MARK:- ---- Public methods ---- -
-    public static func show(title: String?, message: String?, boxApp : BoxAppearance?){
+    @discardableResult public static func show(title: String?, message: String?, boxApp : BoxAppearance?) -> DialogBox{
         let box = DialogBox()
-        let window = UIApplication.shared.windows.last
+        let window = UIApplication.shared.keyWindow
         box.show(title: title, message: message, superView: window!,appearance: boxApp, closeBtnBlock: nil)
+        return box
     }
     
-    public static func show(title: String?, message: String?, boxApp : BoxAppearance?, superView: UIView!){
+    @discardableResult public static func show(title: String?, message: String?, boxApp : BoxAppearance?, superView: UIView!) -> DialogBox{
         let box = DialogBox()
         box.show(title: title, message: message, superView: superView,appearance: boxApp, closeBtnBlock: nil)
+        return box
     }
     
-    public static func show(title: String?, message: String?, boxApp : BoxAppearance?, buttonTitle:String, buttonAppearance: BoxButtonAppearance?, actionBlock: (() -> ())?){
+    @discardableResult public static func show(title: String?, message: String?, boxApp : BoxAppearance?, buttonTitle:String, buttonAppearance: BoxButtonAppearance?, actionBlock: (() -> ())?) -> DialogBox{
         let box = DialogBox()
         box.addButton(title: buttonTitle, buttonAppearance: buttonAppearance, actionBlock: actionBlock)
         
-        let window = UIApplication.shared.windows.last
+        let window = UIApplication.shared.keyWindow
         box.show(title: title, message: message, superView: window!,appearance: boxApp, closeBtnBlock: nil)
+        return box
     }
     
-    public static func show(title: String?, message: String?, superView: UIView!, boxApp : BoxAppearance?, buttonTitle:String, buttonAppearance: BoxButtonAppearance?, actionBlock: (() -> ())?){
+    @discardableResult public static func show(title: String?, message: String?, superView: UIView!, boxApp : BoxAppearance?, buttonTitle:String, buttonAppearance: BoxButtonAppearance?, actionBlock: (() -> ())?)  -> DialogBox{
         let box = DialogBox()
         box.addButton(title: buttonTitle, buttonAppearance: buttonAppearance, actionBlock: actionBlock)
 
         box.show(title: title, message: message, superView: superView,appearance: boxApp, closeBtnBlock: nil)
+        return box
     }
     
-    public static func show(title: String?, message: String?, boxApp : BoxAppearance?, closeBlock: (() -> ())?){
+    @discardableResult public static func show(title: String?, message: String?, boxApp : BoxAppearance?, closeBlock: (() -> ())?) -> DialogBox{
         let box = DialogBox()
-        let window = UIApplication.shared.windows.last
+        let window = UIApplication.shared.keyWindow
         box.show(title: title, message: message, superView: window!,appearance: boxApp, closeBtnBlock: closeBlock)
+        return box
     }
     
-    public static func show(title: String?, message: String?, boxApp : BoxAppearance?, superView: UIView!, closeBlock: (() -> ())?){
+    @discardableResult public static func show(title: String?, message: String?, boxApp : BoxAppearance?, superView: UIView!, closeBlock: (() -> ())?) -> DialogBox{
         let box = DialogBox()
         box.show(title: title, message: message, superView: superView!,appearance: boxApp, closeBtnBlock: closeBlock)
+        return box
     }
     
-    public static func show(title: String?, message: String?, boxApp : BoxAppearance?, buttonTitle:String, buttonAppearance: BoxButtonAppearance?, buttonBlock: (() -> ())?, closeBlock: (() -> ())?){
+    @discardableResult public static func show(title: String?, message: String?, boxApp : BoxAppearance?, buttonTitle:String, buttonAppearance: BoxButtonAppearance?, buttonBlock: (() -> ())?, closeBlock: (() -> ())?) -> DialogBox{
         let box = DialogBox()
         box.addButton(title: buttonTitle, buttonAppearance: buttonAppearance, actionBlock: buttonBlock)
         
-        let window = UIApplication.shared.windows.last
+        let window = UIApplication.shared.keyWindow
         box.show(title: title, message: message, superView: window!,appearance: boxApp, closeBtnBlock: closeBlock)
+        return box
     }
     
     public func show(title: String?, message: String?, boxApp : BoxAppearance?){
-        let window = UIApplication.shared.windows.last
+        let window = UIApplication.shared.keyWindow
         self.show(title: title, message: message, superView: window!,appearance: boxApp, closeBtnBlock: nil)
     }
     
@@ -395,7 +402,7 @@ public class DialogBox : UIView{
     }
     
     public func show(title: String?, message: String?, boxApp : BoxAppearance?, closeBlock: (() -> ())?){
-        let window = UIApplication.shared.windows.last
+        let window = UIApplication.shared.keyWindow
         self.show(title: title, message: message, superView: window!,appearance: boxApp, closeBtnBlock: closeBlock)
     }
     
